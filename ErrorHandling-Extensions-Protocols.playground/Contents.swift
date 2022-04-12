@@ -27,4 +27,52 @@ do {
     print("Got error and its handled here and description is \(error)")
 }
 
+//Extensions - It means adding some extra features to the existing types. Extensions must not contain stored properties.
 
+struct Student{
+    var firstName: String!
+    var lastName: String!
+    
+    func printFullName(){
+        print(fullName())
+    }
+}
+
+extension Student{
+    func fullName() -> String{
+        return firstName + " " + lastName
+    }
+}
+
+let student = Student(firstName: "Akash", lastName: "Singh")
+student.printFullName()
+
+//Protocols - A protocol defines a blueprint of methods or properties that can then be adopted by classes (or any other types).
+
+//-The protocol just holds the method or properties definition, not their actual body.
+//-The protocol must specify whether the property will be gettable or gettable and settable.
+
+
+protocol Flyable {
+    func numberOfKMsPerHour() -> Float
+}
+
+struct Bird {
+    
+}
+
+struct Machine{
+    
+}
+
+extension Machine: Flyable{
+    func numberOfKMsPerHour() -> Float {
+        return 700.0
+    }
+}
+
+extension Bird: Flyable {
+    func numberOfKMsPerHour() -> Float {
+        return 10.0
+    }
+}
